@@ -2,13 +2,9 @@
 import React, { useState } from 'react';
 import {Sparkles, Shield, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js'
+import { supabase } from './supabase';
 
 const WaitlistForm = () => {
-    // These will come from your Supabase project settings
-    const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
     
   const [formData, setFormData] = useState({
     email: '',
