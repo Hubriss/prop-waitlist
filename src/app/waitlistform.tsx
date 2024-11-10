@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Building2, Sparkles, Shield, Clock, Users, CheckCircle2, ArrowRight } from 'lucide-react';
+import {Sparkles, Shield, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js'
 
 const WaitlistForm = () => {
@@ -22,11 +22,12 @@ const WaitlistForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const { data, error } = await supabase
+      const {data, error } = await supabase
         .from('waitlist')
         .insert([formData])
       
       if (error) throw error
+      console.log('Data:', data)
       setSubmitted(true)
     } catch (error) {
       console.error('Error:', error)
